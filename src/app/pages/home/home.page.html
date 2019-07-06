@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-searchbar mode="md" color="secondary" (ionChange)="search($event)"></ion-searchbar>
+</ion-header>
+<ion-content class="home-page">
+  <!-- <section id="snow"></section> -->
+  <div class="city-list" *ngIf="cityList; else emptyState">
+    <city-item (click)="goToDetails(city)" *ngFor="let city of cityList" [data]="city"></city-item>
+  </div>
+  <ng-template #emptyState>
+    <empty-state [query]="query"></empty-state>
+  </ng-template>
+</ion-content>
